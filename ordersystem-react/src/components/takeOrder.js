@@ -1,12 +1,29 @@
 import React from 'react';
 import $ from 'jquery';
 
-
 class TakeOrder extends React.Component {
   constructor(props) {
     super(props);
+    this.verfNumber = 0;
     this.testProducts = [{name: "pepsi", price: "55.00", id: 1},{name: "fanta", price: "20.00", id: 1},{name: "corona", price:"30.00", id: 2}];
     this.handleClick = this.handleClick.bind(this);
+    this.clearInp = this.clearInp.bind(this);
+    this.getOrder = this.getOrder.bind(this);
+  }
+
+  clearInp(){$("#inpList").val("")}
+  getOrder(){
+    if (this.verfNumber === 1) {
+      $("#inpList").val("")
+      this.verfNumber = 0;
+    }
+    else{
+      const dataToSend = $("#inpList").val()
+      console.log(dataToSend)
+      $("#inpList").val('Listo! Tu pedido llegara pronto')
+      this.verfNumber++
+      console.log(this.verfNumber)
+    }
   }
 
   handleClick(ident) {
@@ -20,7 +37,11 @@ class TakeOrder extends React.Component {
   render(){
     return <div className='takeOrder'> 
       <h4>We take your order <br /> Here and now!</h4>
-      <textarea type="text" name="orderInput" id='inpList' ></textarea>
+
+      <textarea type="text" name="orderInput" id='inpList' disabled ></textarea>
+      <br />
+      <button id='clr' onClick={() => this.clearInp()}>Clear</button>
+      <button id='gor'onClick={() => this.getOrder()}>Get order</button>
       <hr />
       <table>
           <thead>
