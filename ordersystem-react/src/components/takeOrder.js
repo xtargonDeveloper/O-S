@@ -1,5 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
+import io from 'socket.io-client'
+
 
 class TakeOrder extends React.Component {
   constructor(props) {
@@ -23,6 +25,11 @@ class TakeOrder extends React.Component {
       $("#inpList").val('Listo! Tu pedido llegara pronto')
       this.verfNumber++
       console.log(this.verfNumber)
+      //socket client send data
+      this.socket = io('http://localhost:8080')
+      this.socket.on('first', (data)=>{
+        console.log(data)
+      })
     }
   }
 
