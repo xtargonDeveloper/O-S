@@ -17,7 +17,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start && node server",
+    "start": "node server",
+    "dev": "concurrently --kill-others \"react-scripts start\" \"npm start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,3 +45,4 @@
     "@types/jquery": "^3.5.14"
   }
 }
+
