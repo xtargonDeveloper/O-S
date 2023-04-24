@@ -130,10 +130,10 @@ td{
 }
 
 
-#iconTrash{
+.iconTrash{
   color: rgb(243, 94, 94);
 }
-#iconTrue{
+.iconTrue{
   color: rgb(71, 184, 71);
 }
 

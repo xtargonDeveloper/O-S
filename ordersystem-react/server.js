@@ -32,7 +32,7 @@ Engine.on("connection", (socket)=>{
     
     socket.on("sendOrder", (body)=>{
         var clientSocketID = body.room
-        var ident = between(10, 200)
+        var ident = between(10, 20000)
 
         Engine.to(clientSocketID).emit("ask", 'Listo! Tu pedido llegara pronto');
         Engine.emit("reciveOrder", {a: ident, b: body.order});
